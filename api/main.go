@@ -55,7 +55,7 @@ func main() {
 
 	log.Info(" API starting...")
 
-	// 🔹 DB CONNECT WITH RETRY
+	//  DB CONNECT WITH RETRY
 	var db *sql.DB
 	var err error
 
@@ -85,10 +85,8 @@ func main() {
 		w.Write([]byte("OK"))
 	})
 
-	//  METRICS
 	mux.Handle("/metrics", promhttp.Handler())
 
-	//  EVENTS API WITH PAGINATION
 	mux.HandleFunc("/events", func(w http.ResponseWriter, r *http.Request) {
 
 		start := time.Now()
