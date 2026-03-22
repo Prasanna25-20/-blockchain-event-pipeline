@@ -14,8 +14,8 @@ func ConnectRedis() {
 
 	RDB = redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
-		Password: "", // no password by default
-		DB:       0,  // default DB
+		Password: "", 
+		DB:       0, 
 	})
 
 	_, err := RDB.Ping(Ctx).Result()
