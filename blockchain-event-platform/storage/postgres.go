@@ -8,10 +8,6 @@ import (
 	_ "github.com/lib/pq"
 )
 
-/*
-Event model
-Represents a decoded blockchain event
-*/
 type Event struct {
 	BlockNumber     int64
 	TxHash          string
@@ -21,9 +17,6 @@ type Event struct {
 	Timestamp       time.Time
 }
 
-/*
-Create DB connection
-*/
 func NewDB() *sql.DB {
 
 	connStr := "user=postgres password=postgres dbname=blockchain_indexer sslmode=disable"
@@ -43,9 +36,6 @@ func NewDB() *sql.DB {
 	return db
 }
 
-/*
-Insert single event
-*/
 func InsertEvent(db *sql.DB, e Event) error {
 
 	query := `
@@ -67,9 +57,6 @@ func InsertEvent(db *sql.DB, e Event) error {
 	return err
 }
 
-/*
-Batch insert (better performance)
-*/
 func InsertBatch(db *sql.DB, events []Event) error {
 
 	tx, err := db.Begin()
