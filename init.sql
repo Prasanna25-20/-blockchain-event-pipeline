@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS events (
+    id SERIAL PRIMARY KEY,
+    data TEXT
+);
