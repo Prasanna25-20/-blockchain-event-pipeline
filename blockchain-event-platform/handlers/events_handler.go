@@ -10,7 +10,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-// GetEvents returns events with optional filters
 func GetEvents(c *fiber.Ctx) error {
 
 	contract := c.Query("contract")
@@ -18,7 +17,6 @@ func GetEvents(c *fiber.Ctx) error {
 
 	cacheKey := "events:" + contract + ":" + event
 
-	// Check Redis cache
 	cached, err := cache.RDB.Get(cache.Ctx, cacheKey).Result()
 
 	if err == nil {
@@ -27,7 +25,6 @@ func GetEvents(c *fiber.Ctx) error {
 		return c.JSON(events)
 	}
 
-	// Query PostgreSQL
 	rows, err := database.DB.Query(
 		`SELECT block_number, tx_hash, contract_address, event_name, data, created_at
 		 FROM events
@@ -62,14 +59,12 @@ func GetEvents(c *fiber.Ctx) error {
 		events = append(events, e)
 	}
 
-	// Save to Redis cache
 	data, _ := json.Marshal(events)
 	cache.RDB.Set(cache.Ctx, cacheKey, data, 0)
 
 	return c.JSON(events)
 }
 
-// GetEventByTx returns event by transaction hash
 func GetEventByTx(c *fiber.Ctx) error {
 
 	txHash := c.Params("txHash")
