@@ -7,13 +7,13 @@ import JoinEvent from "./components/JoinEvent";
 import EventDashboard from "./components/EventDashboard";
 
 function App() {
-  const [socket, setSocket] = useState(null); // ✅ managed socket
+  const [socket, setSocket] = useState(null); 
   const [eventId, setEventId] = useState("");
   const [users, setUsers] = useState([]);
   const [activity, setActivity] = useState([]);
   const [connected, setConnected] = useState(false);
 
-  // ✅ initialize socket once
+  
   useEffect(() => {
     const newSocket = io("http://localhost:5000", {
       transports: ["websocket"],
@@ -26,19 +26,19 @@ function App() {
     };
   }, []);
 
-  // ✅ attach listeners AFTER socket exists
+ 
   useEffect(() => {
     if (!socket) return;
 
     const onConnect = () => {
       setConnected(true);
       console.log("Connected:", socket.id);
-      toast.success("Connected 🚀");
+      toast.success("Connected ");
     };
 
     const onDisconnect = () => {
       setConnected(false);
-      toast.error("Disconnected ❌");
+      toast.error("Disconnected ");
     };
 
     const onEventCreated = (data) => {
@@ -102,7 +102,7 @@ function App() {
             Real-time Event System
           </span>
 
-          {/* ✅ Connection status */}
+          {/* Connection status */}
           <span
             className={`text-xs font-medium px-2 py-1 rounded ${
               connected
