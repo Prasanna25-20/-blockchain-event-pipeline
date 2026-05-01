@@ -1,10 +1,10 @@
-# 🚀 Scalable Blockchain Event Processing Platform
+# Scalable Blockchain Event Processing Platform
 
 Production-style **event-driven system** that ingests blockchain events using Kafka, processes them with Go, stores in PostgreSQL, and visualizes via a React dashboard with Prometheus & Grafana monitoring.
 
 ---
 
-## 💡 Overview
+##  Overview
 - Real-time event ingestion (Kafka)
 - Concurrent processing using Go workers
 - Reliable storage (PostgreSQL)
@@ -14,7 +14,7 @@ Production-style **event-driven system** that ingests blockchain events using Ka
 
 ---
 
-## 🧠 Architecture
+##  Architecture
 Producer → Kafka → Go Workers → PostgreSQL → API → React UI
 ↓
 Prometheus → Grafana
@@ -22,7 +22,7 @@ Prometheus → Grafana
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 - Go, Kafka, PostgreSQL  
 - REST (net/http)  
 - React.js  
@@ -31,7 +31,7 @@ Prometheus → Grafana
 
 ---
 
-## 🚀 Key Features
+## Key Features
 - Event-driven architecture  
 - Concurrent processing with Go routines  
 - Fault-tolerant & scalable design  
@@ -40,14 +40,14 @@ Prometheus → Grafana
 
 ---
 
-## 📊 Performance
+## Performance
 - ~500–1000 events/sec (simulated)  
 - < 50ms API latency  
 - Supports horizontal scaling  
 
 ---
 
-## ▶️ Run Locally
+##  Run Locally
 ```bash
 git clone https://github.com/Prasanna25-20/scalable-blockchain-event-pipeline-.git
 cd scalable-blockchain-event-pipeline-
