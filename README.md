@@ -1,6 +1,7 @@
 # Scalable Blockchain Event Processing Platform
 
 Production-style **event-driven system** that ingests blockchain events using Kafka, processes them with Go, stores in PostgreSQL, and visualizes via a React dashboard with Prometheus & Grafana monitoring.
+Designed to handle high-throughput event streams with fault-tolerant processing and real-time observability.
 
 ---
 
@@ -16,8 +17,8 @@ Production-style **event-driven system** that ingests blockchain events using Ka
 
 ##  Architecture
 Producer → Kafka → Go Workers → PostgreSQL → API → React UI
-↓
-Prometheus → Grafana
+                          ↓
+                   Prometheus → Grafana
 
 
 ---
@@ -59,6 +60,7 @@ API → http://localhost:8080/events
 Prometheus → http://localhost:9090
 Grafana → http://localhost:3000
 
+--
 Use Cases
 Blockchain indexing
 Real-time analytics pipelines
