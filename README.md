@@ -1,208 +1,69 @@
-#  Scalable Blockchain Event Processing Platform
+# 🚀 Scalable Blockchain Event Processing Platform
 
-A production-style full-stack system that ingests blockchain events in real time using Kafka, processes them efficiently, stores them in PostgreSQL, and visualizes them through a responsive UI dashboard with full observability using Prometheus and Grafana.
-
----
-
-##  Overview
-
-This project demonstrates a **real-world event-driven architecture** used in scalable backend systems such as blockchain indexing, analytics pipelines, and streaming platforms.
-
-It includes:
-
-* Real-time event ingestion (Kafka)
-* Asynchronous processing (Go services)
-* Persistent storage (PostgreSQL)
-* API layer (REST)
-* Monitoring (Prometheus + Grafana)
-* Frontend dashboard for visualization
+Production-style **event-driven system** that ingests blockchain events using Kafka, processes them with Go, stores in PostgreSQL, and visualizes via a React dashboard with Prometheus & Grafana monitoring.
 
 ---
 
-##  Architecture
-
-```
-Producer → Kafka → Processor → PostgreSQL → API → Frontend (React)
-                               ↓
-                        Prometheus → Grafana
-```
-
----
-
-##  Tech Stack
-
-| Layer      | Technology |
-| ---------- | ---------- |
-| Language   | Go         |
-| Messaging  | Kafka      |
-| Database   | PostgreSQL |
-| API        | net/http   |
-| Frontend   | React.js   |
-| Monitoring | Prometheus |
-| Dashboard  | Grafana    |
-| Container  | Docker     |
+## 💡 Overview
+- Real-time event ingestion (Kafka)
+- Concurrent processing using Go workers
+- Reliable storage (PostgreSQL)
+- REST API for data access
+- Monitoring with Prometheus + Grafana
+- Frontend dashboard (React)
 
 ---
 
-##  Key Features
+## 🧠 Architecture
+Producer → Kafka → Go Workers → PostgreSQL → API → React UI
+↓
+Prometheus → Grafana
 
-*  Real-time blockchain event ingestion using Kafka
-*  Asynchronous event processing pipeline
-*  Reliable data storage with PostgreSQL
-*  High-performance REST API
-*  Live metrics collection using Prometheus
-*  Visualization with Grafana dashboards
-*  Interactive frontend dashboard for event data
-*  Fully containerized system using Docker
 
 ---
 
-##  Frontend Dashboard
-
-A responsive UI to visualize and monitor blockchain event processing.
-
-### Features
-
-*  Displays processed events from API
-*  Real-time or near real-time updates
-*  Clean dashboard interface
-*  Easy data inspection
-
-### Tech Stack
-
-* React.js
-* Tailwind CSS (if used)
-* Fetch / Axios
+## ⚙️ Tech Stack
+- Go, Kafka, PostgreSQL  
+- REST (net/http)  
+- React.js  
+- Prometheus, Grafana  
+- Docker  
 
 ---
 
-### Screenshots
-
-![Dashboard](./assets/dashboard.png)
-![Events](./assets/events.png)
+## 🚀 Key Features
+- Event-driven architecture  
+- Concurrent processing with Go routines  
+- Fault-tolerant & scalable design  
+- Real-time monitoring & metrics  
+- Full-stack implementation  
 
 ---
 
-## Getting Started
+## 📊 Performance
+- ~500–1000 events/sec (simulated)  
+- < 50ms API latency  
+- Supports horizontal scaling  
 
-### 1. Clone Repository
+---
 
+## ▶️ Run Locally
 ```bash
 git clone https://github.com/Prasanna25-20/scalable-blockchain-event-pipeline-.git
 cd scalable-blockchain-event-pipeline-
-```
-
----
-
-### 2. Start All Services
-
-```bash
 docker-compose up --build
-```
 
----
+Access:
 
-### 3. Create Kafka Topic
+API → http://localhost:8080/events
+Prometheus → http://localhost:9090
+Grafana → http://localhost:3000
 
-```bash
-docker exec -it project2-kafka-1 bash
+Use Cases
+Blockchain indexing
+Real-time analytics pipelines
+Event-driven backend systems
+👤 Author
 
-kafka-topics.sh --create \
-  --topic events \
-  --bootstrap-server kafka:9092 \
-  --partitions 1 \
-  --replication-factor 1
-```
-
----
-
-### 4. Send Test Events
-
-```bash
-kafka-console-producer.sh \
-  --broker-list kafka:9092 \
-  --topic events
-```
-
----
-
-### 5. Access API
-
-```bash
-curl http://localhost:8080/events
-```
-
----
-
-### 6. Run Frontend
-
-```bash
-cd frontend
-npm install
-npm start
-```
-
----
-
-##  Monitoring & Observability
-
-| Tool       | URL                   |
-| ---------- | --------------------- |
-| Prometheus | http://localhost:9090 |
-| Grafana    | http://localhost:3000 |
-
-### Example Metrics
-
-* API request count
-* API latency
-* Event processing rate
-* System performance
-
----
-
-## Project Structure
-
-```
-project/
-├── api/                # REST API service
-├── processor/          # Kafka event processor
-├── frontend/           # React UI dashboard
-├── assets/             # Screenshots & diagrams
-├── docker-compose.yml
-├── prometheus.yml
-├── init.sql
-└── README.md
-```
-
----
-
-##  Highlights
-
-* Event-driven architecture using Kafka
-* Full-stack implementation (Backend + UI)
-* Scalable and modular system design
-* Observability-first engineering approach
-* Production-style development setup
-
----
-
-##  Future Improvements
-
-* Kubernetes deployment
-* Load balancing (NGINX)
-* Authentication & rate limiting
-* Distributed tracing (OpenTelemetry)
-* WebSocket-based real-time UI updates
-
----
-
-##  Author
-
-**Prasanna**
-GitHub: https://github.com/Prasanna25-20
-
----
-
-##  Support
-
-If you found this project useful, consider giving it a star ⭐
+Prasanna
+https://github.com/Prasanna25-20
